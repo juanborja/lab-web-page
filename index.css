@@ -1,0 +1,36 @@
+.logo {
+  display: block;
+  max-width: 35vw;
+  max-height: 35vh;
+  width: auto;
+  height: auto;
+}
+.icono {
+  display: block;
+  max-width: 10vw;
+  max-height: 10vh;
+  width: auto;
+  height: auto;
+}
+.indicador {
+  color: grey;
+  font-size: small;
+}
+.valor {
+  font-size: 0.8rem;
+}
+
+.color {
+  background-color: gray;
+}
+
+@media (min-width: 992px) {
+  .image-same {
+    height: 35vh;
+  }
+}
+
+.home-button {
+  width: 100%;
+  margin: 0.2rem;
+}
