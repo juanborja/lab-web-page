@@ -1,0 +1,14 @@
+.logo {
+  display: block;
+  max-width: 10vw;
+  max-height: 10vh;
+  width: auto;
+  height: auto;
+}
+
+.green {
+  color: #138d75;
+}
+.red {
+  color: #e74c3c;
+}
