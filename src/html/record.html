@@ -66,6 +66,17 @@
           </div>
         </div>
       </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item" id="previousLi">
+            <a id="previous" class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <ul class="pagination justify-content-end" id="paginator"></ul>
+          <li class="page-item" id="NextLi">
+            <a id="next" class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -79,7 +90,7 @@
             <th scope="col">% var</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="tableRecordBody"></tbody>
       </table>
     </div>
   </body>
