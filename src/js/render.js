@@ -40,7 +40,12 @@ const createPagination = (count) => {
     const li = document.createElement('li');
     li.setAttribute('class', 'page-item');
     const a = document.createElement('a');
-    a.setAttribute('class', 'page-link');
+    if (page === i) {
+      a.setAttribute('class', 'page-link activePag');
+    } else {
+      a.setAttribute('class', 'page-link');
+    }
+
     a.setAttribute('href', '#');
     a.setAttribute('id', (i + 1).toString());
     a.appendChild(document.createTextNode((i + 1).toString()));
@@ -55,19 +60,32 @@ const apiWrapper = async (page, size) => {
 };
 const shouldBlockPreviousNext = (page) => {
   const previous = document.getElementById('previousLi');
-  page === 0
-    ? previous.setAttribute('class', 'page-item disabled')
-    : previous.setAttribute('class', 'page-item');
-
+  if (page === 0) {
+    previous.setAttribute('class', 'page-item disabled');
+    previous.disabled = true;
+  } else {
+    previous.setAttribute('class', 'page-item');
+    previous.disabled = false;
+  }
   const next = document.getElementById('NextLi');
-  page === pages - 1
-    ? next.setAttribute('class', 'page-item disabled')
-    : next.setAttribute('class', 'page-item');
+  if (page === pages - 1) {
+    next.setAttribute('class', 'page-item disabled');
+    next.disabled = true;
+  } else {
+    next.setAttribute('class', 'page-item');
+    next.disabled = false;
+  }
 };
 const main = async () => {
   apiWrapper(page, size);
   shouldBlockPreviousNext(page);
   window.addEventListener('click', (event) => {
+    if (event.target.disabled) {
+      // or this.disabled
+      return;
+    }
+    var elements = document.getElementsByClassName('page-link');
+
     switch (event.target.id) {
       case 'next':
         page = page + 1;
@@ -84,6 +102,7 @@ const main = async () => {
         shouldBlockPreviousNext(page);
         break;
     }
+
     apiWrapper(page, size);
   });
 };
