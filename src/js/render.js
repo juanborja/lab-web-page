@@ -54,7 +54,7 @@ const createPagination = (count) => {
   }
 };
 const apiWrapper = async (page, size) => {
-  const result = await getStocks(page, size, 'id,min,vol,max');
+  const result = await getStocks(page, size, 'id,date,last,open,max,min,vol');
   createPagination(result?.data.count);
   addStocksToRecord(result?.data);
 };
@@ -80,12 +80,10 @@ const main = async () => {
   apiWrapper(page, size);
   shouldBlockPreviousNext(page);
   window.addEventListener('click', (event) => {
-    if (event.target.disabled) {
-      // or this.disabled
+    //If the event emitter is disabled or is not a link
+    if (event.target.disabled || !event.target.classList.contains('page-link')) {
       return;
     }
-    var elements = document.getElementsByClassName('page-link');
-
     switch (event.target.id) {
       case 'next':
         page = page + 1;
