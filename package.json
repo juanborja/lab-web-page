@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "webpack serve"
+  },
+  "name": "web",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "https://github.com/juanborja/lab-web-page.git",
+  "author": "juanjborja <juan.borja@patagoniansys.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.5.1",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

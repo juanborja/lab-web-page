@@ -12,3 +12,8 @@
 .red {
   color: #e74c3c;
 }
+.activePag {
+  color: #fff;
+  font-weight: bold;
+  background-color: #7c25ff;
+}
